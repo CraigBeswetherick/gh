@@ -9,3 +9,6 @@ export const PAGE_ABOUT_LABEL: string = "About";
 export const PAGE_ADMIN_LABEL: string = "Admin";
 export const PAGE_BLOG_LABEL: string = "Blog";
 export const PAGE_PORTFOLIO_LABEL: string = "Portfolio";
+
+export const TWITTER_URL: string = "https://twitter.com/grindheadgames";
+export const TWITTER_LABEL: string = "Grindhead Twitter";

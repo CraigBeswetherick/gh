@@ -3,7 +3,7 @@ import NavigationView from "./NavigationView";
 import { useLocation } from "react-router-dom";
 
 export const Navigation = () => {
-  // we need to access the store here.
+  // we need to access the store here to evaluate if logged in.
 
   const location = useLocation();
   let currentPage: string = location.pathname.substr(

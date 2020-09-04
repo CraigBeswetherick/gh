@@ -21,7 +21,8 @@ const FooterView: React.FC = (props) => {
         <Link href={Constants.TWITTER_URL}>twitter.com/grindheadgames </Link>
       </Typography>
       <Typography>
-        <b>Phone:</b> 07311408140{" "}
+        <b>Phone:</b>
+        <Link href="tel:+0311-408-140"> +44 (0)7311408140</Link>{" "}
       </Typography>
       <br />
     </div>

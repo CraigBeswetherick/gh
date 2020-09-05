@@ -8,6 +8,7 @@ import InputBase from "./InputBase";
 import Button from "./Button";
 import Container from "./Container";
 import SVGIcon from "./SVGIcon";
+import MuiAppBar from "./AppBar";
 
 const Theme = createMuiTheme({
   overrides: {
@@ -18,6 +19,7 @@ const Theme = createMuiTheme({
     MuiButton: Button,
     MuiContainer: Container,
     MuiSvgIcon: SVGIcon,
+    MuiAppBar: MuiAppBar,
   },
 });
 

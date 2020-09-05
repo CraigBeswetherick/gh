@@ -16,6 +16,9 @@ import Login from "./Pages/Login";
 //**  Constants  **//
 import * as Constants from "./Utils/Constants";
 
+// Init Firebase
+import "./Utils/Firebase";
+
 function App() {
   return (
     <div className="App">

@@ -10,6 +10,8 @@ import Portfolio from "../Pages/Portfolio";
 import Admin from "../Pages/Admin";
 import Blog from "../Pages/Blog";
 import Login from "../Pages/Login";
+import Register from "../Pages/Register";
+import Logout from "../Pages/Logout";
 
 const Routes = [
   {
@@ -47,6 +49,18 @@ const Routes = [
     path: Constants.PAGE_LOGIN_URL,
     exact: true,
     main: () => Login,
+  },
+  {
+    name: Constants.PAGE_REGISTER_LABEL,
+    path: Constants.PAGE_REGISTER_URL,
+    exact: true,
+    main: () => Register,
+  },
+  {
+    name: Constants.PAGE_LOGOUT_LABEL,
+    path: Constants.PAGE_LOGOUT_URL,
+    exact: true,
+    main: () => Logout,
   },
 ];
 

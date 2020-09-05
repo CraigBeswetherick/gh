@@ -10,6 +10,7 @@ const FooterView: React.FC = (props) => {
       <Typography>Thank you for visiting our website.</Typography>
       <br />
       <Typography>You may contact us via: </Typography>
+      <br />
       <Typography>
         <b>Email: </b>
         <Link href="mailto:grindhead@gmail.com?subject=Hello%20To%20Grindhead">

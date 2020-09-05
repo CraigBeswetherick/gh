@@ -96,3 +96,16 @@ export const logoutUser = (dispatch: Function) => {
       dispatch(logoutError(e));
     });
 };
+
+// Verify user thunk
+export const verifyUser = (dispatch: Function) => {
+  dispatch(requestVerify());
+
+  app.auth().onAuthStateChanged((user) => {
+    if (user !== null) {
+      dispatch(receiveLogin(user));
+    }
+
+    dispatch(receiveVerify(user));
+  });
+};

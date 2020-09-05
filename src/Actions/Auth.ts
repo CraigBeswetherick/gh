@@ -25,9 +25,10 @@ const receiveLogin = (user: any) => {
   };
 };
 
-const loginError = () => {
+const loginError = (e: any) => {
   return {
     type: LOGIN_FAILURE,
+    error: e,
   };
 };
 
@@ -45,9 +46,10 @@ const receiveLogout = (user: any) => {
   };
 };
 
-const logoutError = () => {
+const logoutError = (e: any) => {
   return {
     type: LOGOUT_FAILURE,
+    error: e,
   };
 };
 

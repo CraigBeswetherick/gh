@@ -39,10 +39,9 @@ const requestLogout = () => {
   };
 };
 
-const receiveLogout = (user: any) => {
+const receiveLogout = () => {
   return {
     type: LOGOUT_SUCCESS,
-    user,
   };
 };
 
@@ -65,4 +64,35 @@ const receiveVerify = (user: any) => {
     type: VERIFY_SUCCESS,
     user,
   };
+};
+
+// Login user thunk
+export const loginUser = (email: string, password: string) => (
+  dispatch: Function
+) => {
+  dispatch(requestLogin());
+
+  app
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then((user) => {
+      dispatch(receiveLogin(user));
+    })
+    .catch((error) => {
+      dispatch(loginError(error));
+    });
+};
+
+// Logout user thunk
+export const logoutUser = (dispatch: Function) => {
+  dispatch(requestLogout());
+  app
+    .auth()
+    .signOut()
+    .then(() => {
+      dispatch(receiveLogout());
+    })
+    .catch((e: any) => {
+      dispatch(logoutError(e));
+    });
 };

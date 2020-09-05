@@ -2,15 +2,19 @@
 
 const Button = {
   root: {
-    backgroundColor: "blue"
+    backgroundColor: "black",
+
+    "&:hover": {
+      backgroundColor: "red",
+    },
   },
   textPrimary: {
     color: "white",
     "&:hover": {
       color: "white",
-      backgroundColor: "red"
-    }
-  }
+      backgroundColor: "red",
+    },
+  },
 };
 
 export default Button;

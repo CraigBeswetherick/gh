@@ -7,6 +7,7 @@ import TextField from "./TextField";
 import InputBase from "./InputBase";
 import Button from "./Button";
 import Container from "./Container";
+import SVGIcon from "./SVGIcon";
 
 const Theme = createMuiTheme({
   overrides: {
@@ -15,8 +16,9 @@ const Theme = createMuiTheme({
     MuiFormControl: FormControl,
     MuiInputBase: InputBase,
     MuiButton: Button,
-    MuiContainer: Container
-  }
+    MuiContainer: Container,
+    MuiSvgIcon: SVGIcon,
+  },
 });
 
 export default Theme;

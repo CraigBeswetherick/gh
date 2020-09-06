@@ -13,7 +13,16 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Logout from "../Pages/Logout";
 
-const Routes = [
+export const ProtectedRoutes = [
+  {
+    name: Constants.PAGE_ADMIN_LABEL,
+    path: Constants.PAGE_ADMIN_URL,
+    exact: true,
+    main: () => Admin,
+  },
+];
+
+export const Routes = [
   {
     name: Constants.PAGE_HOME_LABEL,
     path: Constants.PAGE_HOME_URL,
@@ -25,12 +34,6 @@ const Routes = [
     path: Constants.PAGE_ABOUT_URL,
     exact: true,
     main: () => About,
-  },
-  {
-    name: Constants.PAGE_ADMIN_LABEL,
-    path: Constants.PAGE_ADMIN_URL,
-    exact: true,
-    main: () => Admin,
   },
   {
     name: Constants.PAGE_BLOG_LABEL,
@@ -63,5 +66,3 @@ const Routes = [
     main: () => Logout,
   },
 ];
-
-export default Routes;

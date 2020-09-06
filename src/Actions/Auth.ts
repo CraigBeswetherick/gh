@@ -98,7 +98,7 @@ export const logoutUser = (dispatch: Function) => {
 };
 
 // Verify user thunk
-export const verifyUser = (dispatch: Function) => {
+export const verifyAuth = (dispatch: any) => {
   dispatch(requestVerify());
 
   app.auth().onAuthStateChanged((user) => {

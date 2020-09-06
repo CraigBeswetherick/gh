@@ -1,17 +1,20 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import LoginView from "./LoginView";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { loginUser } from "../../Actions/index";
 import * as Constants from "../../Utils/Constants";
+import { store } from '../../Utils/Store;
 
-const Login: React.FC = (props) => {
-  const { loginError, isAuthenticated } = this.props;
+const Login: React.FC = () => {
+  //CREATE STATE FOR EMAIL, PASSOWRD, ISAUTH, ERROR
+
+  const [loginError, setloginError] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
-    const { dispatch } = props;
-    const { email: string, password: string } = this.state;
-    dispatch(loginUser(user, password));
+    dispatch(loginUser(email, password));
   };
 
   const handleEmailChange = ({ target }) => {};

@@ -45,11 +45,10 @@ interface LoginViewInterface {
   handleEmailChange: Function;
   handlePasswordChange: Function;
   handleSubmit: Function;
+  loginError?: any;
 }
 
 const LoginView: React.FC = (props: LoginViewInterface) => {
-  const { classes } = this.props;
-
   return (
     <div>
       <Navigation />
@@ -70,7 +69,7 @@ const LoginView: React.FC = (props: LoginViewInterface) => {
               id="email"
               label="Email Address"
               name="email"
-              onChange={props.handleEmailChange}
+              onChange={() => props.handleEmailChange}
             />
             <TextField
               variant="outlined"
@@ -80,7 +79,7 @@ const LoginView: React.FC = (props: LoginViewInterface) => {
               label="Password"
               type="password"
               id="password"
-              onChange={props.handlePasswordChange}
+              onChange={() => props.handlePasswordChange}
             />
             {loginError && (
               <Typography component="p" className={classes.errorText}>
@@ -93,7 +92,7 @@ const LoginView: React.FC = (props: LoginViewInterface) => {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={props.handleSubmit}
+              onClick={() => props.handleSubmit}
             >
               Sign In
             </Button>

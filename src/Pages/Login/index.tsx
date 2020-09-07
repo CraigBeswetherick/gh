@@ -1,25 +1,65 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import LoginView from "./LoginView";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { loginUser } from "../../Actions/index";
 import * as Constants from "../../Utils/Constants";
-import { store } from '../../Utils/Store;
+import { store } from "../../Root";
 
-const Login: React.FC = () => {
-  //CREATE STATE FOR EMAIL, PASSOWRD, ISAUTH, ERROR
+interface LoginProps {
+  loginError: null;
+  email: string;
+  password: string;
+  isAuthenticated: boolean;
+  isLoggingIn: boolean;
+}
 
-  const [loginError, setloginError] = useState(null);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const Login = (props: LoginProps) => {
+  const [loginError, setloginError] = useState(props.loginError);
+  const [email, setEmail] = useState(props.email);
+  const [password, setPassword] = useState(props.password);
+  const [isAuthenticated, setIsAuthenticated] = useState(props.isAuthenticated);
+  const [isLoggingIn, setIsLoggingIn] = useState(props.isLoggingIn);
 
   const handleSubmit = () => {
-    dispatch(loginUser(email, password));
+    if (isLoggingIn) {
+      return;
+    }
+
+    setIsLoggingIn(true);
+    store.dispatch(loginUser(email, password));
   };
 
-  const handleEmailChange = ({ target }) => {};
+  const handleEmailChange = ({ target }: any) => {
+    if (isLoggingIn) {
+      return;
+    }
 
-  const handlePasswordChange = ({ target }) => {};
+    console.log(target);
+
+    //setEmail
+    setEmail(target);
+  };
+
+  const handlePasswordChange = ({ target }: any) => {
+    if (isLoggingIn) {
+      return;
+    }
+    console.log(target);
+
+    // setPassword
+    setPassword(target);
+  };
+
+  const handleLoginError = ({ error }: any) => {
+    setIsLoggingIn(false);
+    console.log("login error ", error);
+    setloginError(error);
+  };
+
+  const handleAuthenticated = (value: boolean) => {
+    setIsAuthenticated(value);
+  };
 
   if (isAuthenticated) {
     return <Redirect to={Constants.PAGE_ADMIN_URL} />;
@@ -29,6 +69,7 @@ const Login: React.FC = () => {
         handleEmailChange={handleEmailChange}
         handlePasswordChange={handlePasswordChange}
         handleSubmit={handleSubmit}
+        loginError={loginError}
       />
     );
   }

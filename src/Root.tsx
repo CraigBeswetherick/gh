@@ -6,9 +6,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import configureStore from "./Utils/Store";
 
-const store = configureStore();
+export const store = configureStore({});
 
-function Root() {
+export const Root = () => {
   return (
     <Provider store={store}>
       <Router>
@@ -16,6 +16,4 @@ function Root() {
       </Router>
     </Provider>
   );
-}
-
-export default Root;
+};

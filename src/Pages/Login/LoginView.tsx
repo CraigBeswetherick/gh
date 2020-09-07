@@ -48,7 +48,8 @@ interface LoginViewInterface {
   loginError?: any;
 }
 
-const LoginView: React.FC = (props: LoginViewInterface) => {
+const LoginView = (props: LoginViewInterface) => {
+  const { classes, loginError };
   return (
     <div>
       <Navigation />
@@ -104,4 +105,4 @@ const LoginView: React.FC = (props: LoginViewInterface) => {
   );
 };
 
-export default LoginView;
+export default withStyles(styles)(LoginView);

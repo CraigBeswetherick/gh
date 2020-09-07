@@ -46,10 +46,11 @@ interface LoginViewInterface {
   handlePasswordChange: Function;
   handleSubmit: Function;
   loginError?: any;
+  classes?: any;
 }
 
 const LoginView = (props: LoginViewInterface) => {
-  const { classes, loginError };
+  const { classes, loginError, isAuthenticated } = props;
   return (
     <div>
       <Navigation />

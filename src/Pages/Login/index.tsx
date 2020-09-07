@@ -45,6 +45,8 @@ const Login = (props: LoginProps) => {
     if (isLoggingIn) {
       return;
     }
+
+    setPassword(target);
     console.log(target);
 
     // setPassword
@@ -55,10 +57,12 @@ const Login = (props: LoginProps) => {
     setIsLoggingIn(false);
     console.log("login error ", error);
     setloginError(error);
+    setIsLoggingIn(false);
   };
 
   const handleAuthenticated = (value: boolean) => {
     setIsAuthenticated(value);
+    setIsLoggingIn(false);
   };
 
   if (isAuthenticated) {

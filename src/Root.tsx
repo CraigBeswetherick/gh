@@ -7,8 +7,7 @@ import App from "./App";
 import configureStore from "./Utils/Store";
 
 export const store = configureStore({});
-
-export const Root = () => {
+const Root = () => {
   return (
     <Provider store={store}>
       <Router>
@@ -17,3 +16,5 @@ export const Root = () => {
     </Provider>
   );
 };
+
+export default Root;

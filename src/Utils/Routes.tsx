@@ -1,5 +1,3 @@
-import React from "react";
-
 //**  Constants  **//
 import * as Constants from "./Constants";
 

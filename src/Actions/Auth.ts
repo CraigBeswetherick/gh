@@ -1,5 +1,8 @@
 import { app } from "../Utils/Firebase";
 
+import * as Constants from "../Utils/Constants";
+import history from "../Utils/History";
+
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
@@ -7,6 +10,10 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
 export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
+
+export const CHANGE_EMAIL_REQUEST = "CHANGE_EMAIL_REQUEST";
+export const CHANGE_EMAIL_SUCCESS = "CHANGE_EMAIL_SUCCESS";
+export const CHANGE_EMAIL_FAILURE = "CHANGE_EMAIL_FAILURE";
 
 export const VERIFY_REQUEST = "VERIFY_REQUEST";
 export const VERIFY_SUCCESS = "VERIFY_SUCCESS";
@@ -40,6 +47,8 @@ const requestLogout = () => {
 };
 
 const receiveLogout = () => {
+  history.push(Constants.PAGE_LOGOUT_URL);
+
   return {
     type: LOGOUT_SUCCESS,
   };

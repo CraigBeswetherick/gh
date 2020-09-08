@@ -3,8 +3,6 @@ import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import Navigation from "../../Components/Navigation";
 
-import { withStyles } from "@material-ui/styles";
-
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -12,8 +10,9 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Container from "@material-ui/core/Container";
+import { makeStyles } from "@material-ui/styles";
 
-const styles = () => ({
+const styles = makeStyles({
   "@global": {
     body: {
       backgroundColor: "#fff",
@@ -39,6 +38,7 @@ const styles = () => ({
     marginBottom: 5,
     textAlign: "center",
   },
+  submit: {},
 });
 
 interface LoginViewInterface {
@@ -46,11 +46,11 @@ interface LoginViewInterface {
   handlePasswordChange: Function;
   handleSubmit: Function;
   loginError?: any;
-  classes?: any;
 }
 
 const LoginView = (props: LoginViewInterface) => {
-  const { classes, loginError, isAuthenticated } = props;
+  const { loginError } = props;
+  const classes = styles();
   return (
     <div>
       <Navigation />
@@ -106,4 +106,4 @@ const LoginView = (props: LoginViewInterface) => {
   );
 };
 
-export default withStyles(styles)(LoginView);
+export default LoginView;

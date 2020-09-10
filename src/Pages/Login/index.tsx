@@ -27,7 +27,7 @@ const Login = (props: LoginProps) => {
     }
 
     setIsLoggingIn(true);
-    store.dispatch(loginUser(email, password));
+    loginUser(email, password, store.dispatch);
   };
 
   const handleEmailChange = ({ target }: any) => {

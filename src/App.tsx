@@ -57,4 +57,5 @@ function mapStateToProps(state: any) {
     isVerifying: state.auth.isVerifying,
   };
 }
+
 export default connect(mapStateToProps)(App);

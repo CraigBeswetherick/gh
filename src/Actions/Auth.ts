@@ -76,7 +76,9 @@ const receiveVerify = (user: any) => {
 };
 
 // Login user thunk
-export const loginUser = (email: string, password: string) => (
+export const loginUser = (
+  email: string,
+  password: string,
   dispatch: Function
 ) => {
   dispatch(requestLogin());
@@ -107,7 +109,7 @@ export const logoutUser = (dispatch: Function) => {
 };
 
 // Verify user thunk
-export const verifyAuth = (dispatch: any) => {
+export const verifyAuth = (dispatch: Function) => {
   dispatch(requestVerify());
 
   app.auth().onAuthStateChanged((user) => {

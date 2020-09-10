@@ -1,10 +1,10 @@
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, createStore, Store } from "redux";
 import thunkMiddleware from "redux-thunk";
 
 import { verifyAuth } from "../Actions";
 import rootReducer from "../Reducers";
 
-export default function configureStore(persistedState: any): any {
+export default function configureStore(persistedState: any): Store {
   const store = createStore(
     rootReducer,
     persistedState,

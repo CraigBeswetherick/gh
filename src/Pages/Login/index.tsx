@@ -21,6 +21,8 @@ const Login = (props: LoginProps) => {
   const [isAuthenticated, setIsAuthenticated] = useState(props.isAuthenticated);
   const [isLoggingIn, setIsLoggingIn] = useState(props.isLoggingIn);
 
+  console.log("updating", email);
+
   const handleSubmit = () => {
     console.log(isLoggingIn);
     if (isLoggingIn) {
@@ -63,6 +65,8 @@ const Login = (props: LoginProps) => {
     setIsLoggingIn(false);
   };
 
+  console.log("rendering", isAuthenticated);
+
   if (isAuthenticated) {
     return <Redirect to={Constants.PAGE_ADMIN_URL} />;
   } else {
@@ -72,6 +76,8 @@ const Login = (props: LoginProps) => {
         handlePasswordChange={handlePasswordChange}
         handleSubmit={handleSubmit}
         loginError={loginError}
+        email={email}
+        password={password}
       />
     );
   }
@@ -82,6 +88,7 @@ function mapStateToProps(state: any) {
     isLoggingIn: state.Auth.isLoggingIn,
     loginError: state.Auth.loginError,
     isAuthenticated: state.Auth.isAuthenticated,
+    email: state.Auth.user.email,
   };
 }
 

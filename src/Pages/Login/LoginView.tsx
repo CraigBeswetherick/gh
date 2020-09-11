@@ -46,11 +46,15 @@ interface LoginViewInterface {
   handlePasswordChange: Function;
   handleSubmit: Function;
   loginError?: any;
+  email?: string;
+  password?: string;
 }
 
 const LoginView = (props: LoginViewInterface) => {
   const { loginError } = props;
   const classes = styles();
+
+  console.log(props.email, props.password);
   return (
     <div>
       <Navigation />
@@ -71,12 +75,14 @@ const LoginView = (props: LoginViewInterface) => {
               id="email"
               label="Email Address"
               name="email"
+              defaultValue={props.email}
               onChange={(e: any) => props.handleEmailChange(e)}
             />
             <TextField
               variant="outlined"
               margin="normal"
               fullWidth
+              defaultValue={props.password}
               name="password"
               label="Password"
               type="password"

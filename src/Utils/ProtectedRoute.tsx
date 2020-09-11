@@ -6,10 +6,16 @@ const ProtectedRoute = ({
   component = null,
   isAuthenticated = false,
   isVerifying = false,
+  key = "",
+  path = "",
+  exact = true,
   ...rest
 }) => (
   <Route
     {...rest}
+    key={key}
+    path={path}
+    exact={exact}
     render={(props: any) =>
       isVerifying ? (
         <div />

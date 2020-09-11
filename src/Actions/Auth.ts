@@ -88,6 +88,7 @@ export const loginUser = (
     .signInWithEmailAndPassword(email, password)
     .then((user) => {
       dispatch(receiveLogin(user));
+      console.log("auth logged in thunk success");
     })
     .catch((error) => {
       dispatch(loginError(error));
@@ -115,9 +116,9 @@ export const verifyAuth = (dispatch: Function) => {
   app.auth().onAuthStateChanged((user: any) => {
     if (user !== null) {
       dispatch(receiveLogin(user));
-      console.log("logged in");
+      console.log("logged in no verify", user);
     } else if (user && user.emailVerified) {
-      console.log("verify", user);
+      console.log("verifed login", user);
       dispatch(receiveVerify(user));
     }
   });

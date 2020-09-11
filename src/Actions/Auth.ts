@@ -112,12 +112,13 @@ export const logoutUser = (dispatch: Function) => {
 export const verifyAuth = (dispatch: Function) => {
   dispatch(requestVerify());
 
-  app.auth().onAuthStateChanged((user) => {
+  app.auth().onAuthStateChanged((user: any) => {
     if (user !== null) {
       dispatch(receiveLogin(user));
       console.log("logged in");
+    } else if (user && user.emailVerified) {
+      dispatch(receiveVerify(user));
     }
     console.log("verify", user);
-    dispatch(receiveVerify(user));
   });
 };

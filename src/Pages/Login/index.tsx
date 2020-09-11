@@ -22,41 +22,39 @@ const Login = (props: LoginProps) => {
   const [isLoggingIn, setIsLoggingIn] = useState(props.isLoggingIn);
 
   const handleSubmit = () => {
+    console.log(isLoggingIn);
     if (isLoggingIn) {
       return;
     }
-
+    console.log("logging in ", email, password);
     setIsLoggingIn(true);
     loginUser(email, password, store.dispatch);
   };
 
-  const handleEmailChange = ({ target }: any) => {
+  const handleEmailChange = (e: any) => {
     if (isLoggingIn) {
       return;
     }
 
-    console.log(target);
+    console.log(e.target.value);
 
     //setEmail
-    setEmail(target);
+    setEmail(e.target.value);
   };
 
-  const handlePasswordChange = ({ target }: any) => {
+  const handlePasswordChange = (e: any) => {
     if (isLoggingIn) {
       return;
     }
 
-    setPassword(target);
-    console.log(target);
-
-    // setPassword
-    setPassword(target);
+    setPassword(e.target.value);
+    console.log(e.target.value);
   };
 
-  const handleLoginError = ({ error }: any) => {
+  const handleLoginError = (e: any) => {
     setIsLoggingIn(false);
-    console.log("login error ", error);
-    setloginError(error);
+    console.log("login error ", e);
+    setloginError(e);
     setIsLoggingIn(false);
   };
 

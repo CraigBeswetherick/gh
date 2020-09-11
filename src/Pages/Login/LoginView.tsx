@@ -71,7 +71,7 @@ const LoginView = (props: LoginViewInterface) => {
               id="email"
               label="Email Address"
               name="email"
-              onChange={() => props.handleEmailChange}
+              onChange={(e: any) => props.handleEmailChange(e)}
             />
             <TextField
               variant="outlined"
@@ -81,7 +81,7 @@ const LoginView = (props: LoginViewInterface) => {
               label="Password"
               type="password"
               id="password"
-              onChange={() => props.handlePasswordChange}
+              onChange={(e: any) => props.handlePasswordChange(e)}
             />
             {loginError && (
               <Typography component="p" className={classes.errorText}>
@@ -94,7 +94,7 @@ const LoginView = (props: LoginViewInterface) => {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={() => props.handleSubmit}
+              onClick={(e: any) => props.handleSubmit(e)}
             >
               Sign In
             </Button>

@@ -1,8 +1,14 @@
 import React from "react";
 import NavigationView from "./NavigationView";
 import { useLocation } from "react-router-dom";
+import { connect } from "react-redux";
 
-export const Navigation = () => {
+interface NavigationProps {
+  isLoggingIn: boolean;
+  isAuthenticated: boolean;
+}
+
+export const Navigation = (props: NavigationProps) => {
   // we need to access the store here to evaluate if logged in.
 
   const location = useLocation();
@@ -13,7 +19,20 @@ export const Navigation = () => {
 
   currentPage = currentPage.toLocaleUpperCase();
 
-  return <NavigationView isLoggedIn={true} currentPage={currentPage} />;
+  return (
+    <NavigationView
+      isLoggingIn={props.isLoggingIn}
+      isAuthenticated={props.isAuthenticated}
+      currentPage={currentPage}
+    />
+  );
 };
 
-export default Navigation;
+function mapStateToProps(state: any) {
+  return {
+    isLoggingIn: state.Auth.isLoggingIn,
+    isAuthenticated: state.Auth.isAuthenticated,
+  };
+}
+
+export default connect(mapStateToProps)(Navigation);

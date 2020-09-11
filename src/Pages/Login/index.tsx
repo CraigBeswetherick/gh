@@ -81,9 +81,9 @@ const Login = (props: LoginProps) => {
 
 function mapStateToProps(state: any) {
   return {
-    isLoggingIn: state.auth.isLoggingIn,
-    loginError: state.auth.loginError,
-    isAuthenticated: state.auth.isAuthenticated,
+    isLoggingIn: state.Auth.isLoggingIn,
+    loginError: state.Auth.loginError,
+    isAuthenticated: state.Auth.isAuthenticated,
   };
 }
 

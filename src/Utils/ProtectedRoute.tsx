@@ -1,34 +1,29 @@
-import React, { ComponentClass, Component } from "react";
+import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
-import * as Constants from "./Constants";
+import * as Constants from "../Utils/Constants";
 
-interface ProtectedRouteProps {
-  component: ComponentClass;
-  isAuthenticated: boolean;
-  isVerifying: boolean;
-  key: string;
-  path: string;
-  exact: boolean;
-}
-
-const ProtectedRoute = (props: ProtectedRouteProps) => {
-  return (
-    <Route
-      render={(props) => (
-        <div>
-          isVerifying ? ( <div /> ) : isAuthenticated ? (
-          <Component {...props} /> ) : (
-          <Redirect
-            to={{
-              pathname: Constants.PAGE_HOME_URL,
-              state: { from: props.location },
-            }}
-          />
-          )
-        </div>
-      )}
-    />
-  );
-};
-
+const ProtectedRoute = ({
+  component = null,
+  isAuthenticated = false,
+  isVerifying = false,
+  ...rest
+}) => (
+  <Route
+    {...rest}
+    render={(props: any) =>
+      isVerifying ? (
+        <div />
+      ) : isAuthenticated ? (
+        <Component {...props} />
+      ) : (
+        <Redirect
+          to={{
+            pathname: Constants.PAGE_LOGIN_URL,
+            state: { from: props.location },
+          }}
+        />
+      )
+    }
+  />
+);
 export default ProtectedRoute;

@@ -115,8 +115,9 @@ export const verifyAuth = (dispatch: Function) => {
   app.auth().onAuthStateChanged((user) => {
     if (user !== null) {
       dispatch(receiveLogin(user));
+      console.log("logged in");
     }
-
+    console.log("verify", user);
     dispatch(receiveVerify(user));
   });
 };

@@ -117,8 +117,8 @@ export const verifyAuth = (dispatch: Function) => {
       dispatch(receiveLogin(user));
       console.log("logged in");
     } else if (user && user.emailVerified) {
+      console.log("verify", user);
       dispatch(receiveVerify(user));
     }
-    console.log("verify", user);
   });
 };

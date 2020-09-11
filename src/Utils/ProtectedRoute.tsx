@@ -12,9 +12,9 @@ interface InterfaceProtectedRoute {
 }
 
 const ProtectedRoute = (props: InterfaceProtectedRoute) => {
-  console.log(props.isAuthenticated, " route");
+  console.log(props.isAuthenticated, "route");
   if (props.isAuthenticated) {
-    console.log("rending admin");
+    console.log("rendering admin");
     return (
       <Route
         key={props.key}
@@ -24,7 +24,7 @@ const ProtectedRoute = (props: InterfaceProtectedRoute) => {
       />
     );
   } else {
-    console.log("rending redirect");
+    console.log("rendering redirect");
     return (
       <Redirect
         to={{

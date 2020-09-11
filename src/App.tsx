@@ -20,6 +20,7 @@ interface AppProps {
 
 function App(props: AppProps) {
   const { isAuthenticated, isVerifying } = props;
+
   return (
     <div className="App">
       <MuiThemeProvider theme={Theme}>
@@ -39,7 +40,7 @@ function App(props: AppProps) {
                 key={route.path}
                 path={route.path}
                 exact={route.exact}
-                component={route.main()}
+                component={route.main}
                 isAuthenticated={isAuthenticated}
                 isVerifying={isVerifying}
               />

@@ -1,7 +1,9 @@
 import React from "react";
 import AdminView from "./AdminView";
 
-const Admin: React.FC = (props) => {
+interface AdminProps {}
+
+const Admin: React.FC = (props: AdminProps) => {
   return <AdminView />;
 };
 

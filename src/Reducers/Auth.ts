@@ -36,7 +36,6 @@ export default (
       };
 
     case LOGIN_SUCCESS:
-      console.log("logged in reducer", action.user);
       return {
         ...state,
         isLoggingIn: false,

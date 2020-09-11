@@ -54,7 +54,6 @@ const LoginView = (props: LoginViewInterface) => {
   const { loginError } = props;
   const classes = styles();
 
-  console.log(props.email, props.password);
   return (
     <div>
       <Navigation />

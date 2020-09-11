@@ -119,8 +119,6 @@ export const verifyAuth = (store: Store) => {
       store.dispatch(receiveLogin(user));
       store.dispatch(receiveVerify(user));
       console.log("Logged in user");
-
-      history.push(Constants.PAGE_ADMIN_URL);
     }
   });
 };

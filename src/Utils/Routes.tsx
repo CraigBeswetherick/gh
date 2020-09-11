@@ -11,16 +11,14 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Logout from "../Pages/Logout";
 
-export const ProtectedRoutes = [
+export const Routes = [
   {
     name: Constants.PAGE_ADMIN_LABEL,
     path: Constants.PAGE_ADMIN_URL,
     exact: true,
     main: () => Admin,
+    isProtected: true,
   },
-];
-
-export const Routes = [
   {
     name: Constants.PAGE_HOME_LABEL,
     path: Constants.PAGE_HOME_URL,

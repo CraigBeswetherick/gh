@@ -47,8 +47,9 @@ const Login = (props: LoginProps) => {
     // setloginError(e);
     // setIsLoggingIn(false);
   };
-
+  console.log("rendering login page");
   if (props.isAuthenticated) {
+    console.log("login page redirecting");
     return <Redirect to={Constants.PAGE_ADMIN_URL} />;
   } else {
     return (

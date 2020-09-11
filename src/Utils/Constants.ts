@@ -13,7 +13,7 @@ export const PAGE_ADMIN_LABEL: string = "Admin";
 export const PAGE_BLOG_LABEL: string = "Blog";
 export const PAGE_PORTFOLIO_LABEL: string = "Portfolio";
 export const PAGE_LOGIN_LABEL: string = "Login";
-export const PAGE_REGISTER_LABEL: string = "Login";
+export const PAGE_REGISTER_LABEL: string = "Register";
 export const PAGE_LOGOUT_LABEL: string = "Logout";
 
 export const TWITTER_URL: string = "https://twitter.com/grindheadgames";

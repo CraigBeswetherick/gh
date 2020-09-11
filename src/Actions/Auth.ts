@@ -2,6 +2,7 @@ import { app } from "../Utils/Firebase";
 
 import * as Constants from "../Utils/Constants";
 import history from "../Utils/History";
+import { Store } from "redux";
 
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -110,13 +111,14 @@ export const logoutUser = (dispatch: Function) => {
 };
 
 // Verify user thunk
-export const verifyAuth = (dispatch: Function) => {
-  dispatch(requestVerify());
+export const verifyAuth = (store: Store) => {
+  store.dispatch(requestVerify());
 
   app.auth().onAuthStateChanged((user: any) => {
     if (user !== null) {
-      dispatch(receiveLogin(user));
-      dispatch(receiveVerify(user));
+      store.dispatch(receiveLogin(user));
+      store.dispatch(receiveVerify(user));
+      console.log("Logged in user");
     }
   });
 };

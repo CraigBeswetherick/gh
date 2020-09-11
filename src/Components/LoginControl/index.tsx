@@ -9,9 +9,6 @@ interface LoginControlProps {
 
 export const LoginControl = (props: LoginControlProps) => {
   const [isLoggingIn, setIsLoggingIn] = React.useState(props.isLoggingIn);
-  const [isAuthenticated, setIsAuthenticated] = React.useState(
-    props.isAuthenticated
-  );
 
   const handleLoginClick = () => {
     if (isLoggingIn) {
@@ -27,7 +24,7 @@ export const LoginControl = (props: LoginControlProps) => {
     }
   };
 
-  const button = isAuthenticated ? (
+  const button = props.isAuthenticated ? (
     <LogoutButton onClick={handleLogoutClick} />
   ) : (
     <LoginButton onClick={handleLoginClick} disabled={props.isLoggingIn} />

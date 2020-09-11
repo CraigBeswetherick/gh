@@ -25,14 +25,7 @@ const ProtectedRoute = (props: InterfaceProtectedRoute) => {
     );
   } else {
     console.log("rendering redirect");
-    return (
-      <Redirect
-        to={{
-          pathname: Constants.PAGE_LOGIN_URL,
-          state: { from: window.location.href },
-        }}
-      />
-    );
+    return <Redirect to={Constants.PAGE_LOGIN_URL} />;
   }
 };
 

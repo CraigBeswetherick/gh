@@ -11,7 +11,7 @@ export default function configureStore(persistedState: Object): Store {
     applyMiddleware(thunkMiddleware)
   );
 
-  verifyAuth(store.dispatch);
+  verifyAuth(store);
 
   return store;
 }

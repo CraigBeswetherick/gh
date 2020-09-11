@@ -6,6 +6,7 @@ import Navigation from "../../Components/Navigation";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import FormControl from "@material-ui/core/FormControl";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
@@ -67,42 +68,44 @@ const LoginView = (props: LoginViewInterface) => {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              defaultValue={props.email}
-              onChange={(e: any) => props.handleEmailChange(e)}
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              fullWidth
-              defaultValue={props.password}
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              onChange={(e: any) => props.handlePasswordChange(e)}
-            />
-            {loginError && (
-              <Typography component="p" className={classes.errorText}>
-                Incorrect email or password.
-              </Typography>
-            )}
-            <Button
-              type="button"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              onClick={(e: any) => props.handleSubmit(e)}
-            >
-              Sign In
-            </Button>
+            <FormControl>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                defaultValue={props.email}
+                onChange={(e: any) => props.handleEmailChange(e)}
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                fullWidth
+                defaultValue={props.password}
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                onChange={(e: any) => props.handlePasswordChange(e)}
+              />
+              {loginError && (
+                <Typography component="p" className={classes.errorText}>
+                  Incorrect email or password.
+                </Typography>
+              )}
+              <Button
+                type="button"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+                onClick={(e: any) => props.handleSubmit(e)}
+              >
+                Sign In
+              </Button>
+            </FormControl>
           </Paper>
         </Container>
       </div>

@@ -7,7 +7,7 @@ import App from "./App";
 import configureStore from "./Utils/Store";
 
 export const store = configureStore({
-  auth: { isAuthenticated: false, isVerfifying: false },
+  Auth: { isAuthenticated: false, isVerfifying: false },
 });
 
 const Root = () => {

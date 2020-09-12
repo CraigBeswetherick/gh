@@ -4,20 +4,45 @@ import * as Constants from "../Utils/Constants";
 import history from "../Utils/History";
 import { Store } from "redux";
 
-export const LOGIN_REQUEST = "LOGIN_REQUEST";
-export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-export const LOGIN_FAILURE = "LOGIN_FAILURE";
+export const REGISTER_REQUEST: string = "REGISTER_REQUEST";
+export const REGISTER_SUCCESS: string = "REGISTER_SUCCESS";
+export const REGISTER_FAILURE: string = "REGISTER_FAILURE";
 
-export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
-export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
-export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
+export const LOGIN_REQUEST: string = "LOGIN_REQUEST";
+export const LOGIN_SUCCESS: string = "LOGIN_SUCCESS";
+export const LOGIN_FAILURE: string = "LOGIN_FAILURE";
 
-export const CHANGE_EMAIL_REQUEST = "CHANGE_EMAIL_REQUEST";
-export const CHANGE_EMAIL_SUCCESS = "CHANGE_EMAIL_SUCCESS";
-export const CHANGE_EMAIL_FAILURE = "CHANGE_EMAIL_FAILURE";
+export const LOGOUT_REQUEST: string = "LOGOUT_REQUEST";
+export const LOGOUT_SUCCESS: string = "LOGOUT_SUCCESS";
+export const LOGOUT_FAILURE: string = "LOGOUT_FAILURE";
 
-export const VERIFY_REQUEST = "VERIFY_REQUEST";
-export const VERIFY_SUCCESS = "VERIFY_SUCCESS";
+export const CHANGE_EMAIL_REQUEST: string = "CHANGE_EMAIL_REQUEST";
+export const CHANGE_EMAIL_SUCCESS: string = "CHANGE_EMAIL_SUCCESS";
+export const CHANGE_EMAIL_FAILURE: string = "CHANGE_EMAIL_FAILURE";
+
+export const VERIFY_REQUEST: string = "VERIFY_REQUEST";
+export const VERIFY_SUCCESS: string = "VERIFY_SUCCESS";
+
+// Login
+const requestRegister = () => {
+  return {
+    type: REGISTER_REQUEST,
+  };
+};
+
+const receiveRegister = (user: any) => {
+  return {
+    type: REGISTER_SUCCESS,
+    user,
+  };
+};
+
+export const registerError = (e: string) => {
+  return {
+    type: REGISTER_FAILURE,
+    error: e,
+  };
+};
 
 // Login
 const requestLogin = () => {
@@ -74,6 +99,25 @@ export const receiveVerify = (user: any) => {
     type: VERIFY_SUCCESS,
     user,
   };
+};
+
+// Register user thunk
+export const registerUser = (
+  email: string,
+  password: string,
+  dispatch: Function
+) => {
+  dispatch(requestRegister());
+
+  app
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then((user) => {
+      dispatch(receiveRegister(user));
+    })
+    .catch((e) => {
+      dispatch(registerError(e.message));
+    });
 };
 
 // Login user thunk

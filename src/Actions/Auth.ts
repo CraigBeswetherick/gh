@@ -1,4 +1,4 @@
-import { app } from "../Utils/Firebase";
+import { app, getUser } from "../Utils/Firebase";
 
 import * as Constants from "../Utils/Constants";
 import history from "../Utils/History";
@@ -113,7 +113,9 @@ export const registerUser = (
     .auth()
     .createUserWithEmailAndPassword(email, password)
     .then((user) => {
-      dispatch(receiveRegister(user));
+      return getUser(user.user?.uid).set({ email }, () => {
+        dispatch(receiveRegister(user));
+      });
     })
     .catch((e) => {
       dispatch(registerError(e.message));

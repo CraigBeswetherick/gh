@@ -20,5 +20,5 @@ export const app = firebase.initializeApp(firebaseConfig);
 export const analytics = app.analytics();
 export const db = app.database();
 
-export const getUser = (uid: string) => db.ref(`users/${uid}`);
+export const getUser = (uid?: string) => db.ref(`users/${uid}`);
 export const getAllUsers = () => db.ref("users");

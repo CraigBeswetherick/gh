@@ -1,26 +1,30 @@
 import React from "react";
 import { LogoutButton } from "./LogoutButton";
 import { LoginButton } from "./LoginButton";
+import { logoutUser } from "../../Actions";
+import { store } from "../../index";
+import * as Constants from "../../Utils/Constants";
 
 interface LoginControlProps {
-  isLoggedIn: boolean;
+  isLoggingIn: boolean;
+  isAuthenticated: boolean;
 }
 
 export const LoginControl = (props: LoginControlProps) => {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(props.isLoggedIn);
-
   const handleLoginClick = () => {
-    setIsLoggedIn(true);
+    window.location.href = Constants.PAGE_LOGIN_URL;
   };
 
   const handleLogoutClick = () => {
-    setIsLoggedIn(false);
+    logoutUser(store.dispatch).then(() => {
+      window.location.href = Constants.PAGE_HOME_URL;
+    });
   };
 
-  const button = isLoggedIn ? (
+  const button = props.isAuthenticated ? (
     <LogoutButton onClick={handleLogoutClick} />
   ) : (
-    <LoginButton onClick={handleLoginClick} />
+    <LoginButton onClick={handleLoginClick} disabled={props.isLoggingIn} />
   );
 
   return <div>{button}</div>;

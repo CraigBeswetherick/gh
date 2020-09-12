@@ -27,7 +27,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface ButtonAppBarInterface {
   currentPage: string;
-  isLoggedIn: boolean;
+  isLoggingIn: boolean;
+  isAuthenticated: boolean;
 }
 
 export default function ButtonAppBar(props: ButtonAppBarInterface) {
@@ -93,7 +94,10 @@ export default function ButtonAppBar(props: ButtonAppBarInterface) {
             {props.currentPage}
           </Typography>
 
-          <LoginControl isLoggedIn={props.isLoggedIn} />
+          <LoginControl
+            isLoggingIn={props.isLoggingIn}
+            isAuthenticated={props.isAuthenticated}
+          />
         </Toolbar>
       </AppBar>
     </div>

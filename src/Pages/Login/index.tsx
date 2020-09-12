@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LoginView from "./LoginView";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -17,6 +17,12 @@ interface LoginProps {
 const Login = (props: LoginProps) => {
   const [email, setEmail] = useState(props.user.email || "");
   const [password, setPassword] = useState(props.password);
+
+  useEffect(() => {
+    if (props.isAuthenticated) {
+      window.location.href = "/admin";
+    }
+  }, [props.isAuthenticated]);
 
   const handleSubmit = () => {
     if (props.isLoggingIn) {
@@ -47,10 +53,11 @@ const Login = (props: LoginProps) => {
     // setloginError(e);
     // setIsLoggingIn(false);
   };
-  console.log("rendering login page");
+
   if (props.isAuthenticated) {
-    console.log("login page redirecting");
-    return <Redirect to={Constants.PAGE_ADMIN_URL} />;
+    return (
+      <Redirect to={Constants.PAGE_ADMIN_URL} from={Constants.PAGE_LOGIN_URL} />
+    );
   } else {
     return (
       <LoginView

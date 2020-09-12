@@ -5,16 +5,13 @@ import * as Constants from "../Utils/Constants";
 interface InterfaceProtectedRoute {
   component: Function;
   isAuthenticated: boolean;
-  isVerifying: boolean;
   path: string;
   exact: boolean;
   isProtected: boolean;
 }
 
 const ProtectedRoute = (props: InterfaceProtectedRoute) => {
-  console.log(props.isAuthenticated, "route");
   if (props.isAuthenticated && props.isProtected) {
-    console.log("rendering admin");
     return (
       <Route
         key={props.path}
@@ -34,7 +31,8 @@ const ProtectedRoute = (props: InterfaceProtectedRoute) => {
     );
   } else {
     console.log("rendering redirect");
-    return <Redirect to={Constants.PAGE_LOGIN_URL} />;
+    // return <Redirect to={Constants.PAGE_LOGIN_URL} />;
+    return <div></div>;
   }
 };
 

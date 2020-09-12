@@ -15,12 +15,11 @@ import "./Utils/Firebase";
 
 interface AppProps {
   isAuthenticated: boolean;
-  isVerifying: boolean;
 }
 
 function App(props: AppProps) {
-  const { isAuthenticated, isVerifying } = props;
-  console.log("rendering app", isAuthenticated, isVerifying, history.location);
+  const { isAuthenticated } = props;
+
   return (
     <div className="App">
       <MuiThemeProvider theme={Theme}>
@@ -34,7 +33,6 @@ function App(props: AppProps) {
                 component={route.main}
                 isProtected={route.isProtected}
                 isAuthenticated={isAuthenticated}
-                isVerifying={isVerifying}
               />
             ))}
           </Switch>
@@ -47,7 +45,6 @@ function App(props: AppProps) {
 function mapStateToProps(state: any) {
   return {
     isAuthenticated: state.Auth.isAuthenticated,
-    isVerifying: state.Auth.isVerifying,
   };
 }
 

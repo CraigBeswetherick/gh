@@ -89,7 +89,6 @@ export const loginUser = (
     .signInWithEmailAndPassword(email, password)
     .then((user) => {
       dispatch(receiveLogin(user));
-      console.log("auth logged in thunk success");
     })
     .catch((error) => {
       dispatch(loginError(error));
@@ -99,7 +98,7 @@ export const loginUser = (
 // Logout user thunk
 export const logoutUser = (dispatch: Function) => {
   dispatch(requestLogout());
-  app
+  return app
     .auth()
     .signOut()
     .then(() => {
@@ -111,14 +110,16 @@ export const logoutUser = (dispatch: Function) => {
 };
 
 // Verify user thunk
-export const verifyAuth = (store: Store) => {
-  store.dispatch(requestVerify());
+export function verifyAuth(store: Store): Store {
+  // store.dispatch(requestVerify());
 
   app.auth().onAuthStateChanged((user: any) => {
     if (user !== null) {
+      // history.push("/admin");
       store.dispatch(receiveLogin(user));
       store.dispatch(receiveVerify(user));
-      console.log("Logged in user");
     }
   });
-};
+
+  return store;
+}

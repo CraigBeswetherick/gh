@@ -9,7 +9,6 @@ interface AdminProps {
 }
 
 const Admin = (props: AdminProps) => {
-  console.log(props.isAuthenticated, "auth");
   if (!props.isAuthenticated) {
     return <Redirect to={Constants.PAGE_HOME_URL} />;
   }

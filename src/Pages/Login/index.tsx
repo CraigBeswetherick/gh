@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { loginUser } from "../../Actions/index";
 import * as Constants from "../../Utils/Constants";
-import { store } from "../../Root";
+import { store } from "../../index";
 
 interface LoginProps {
   loginError: null;
@@ -48,11 +48,9 @@ const Login = (props: LoginProps) => {
     setPassword(e.target.value);
   };
 
-  const handleLoginError = (e: any) => {
-    console.log("login error ", e);
-    // setloginError(e);
-    // setIsLoggingIn(false);
-  };
+  // const handleLoginError = (e: any) => {
+  //   console.log("login error ", e);
+  // };
 
   if (props.isAuthenticated) {
     return (

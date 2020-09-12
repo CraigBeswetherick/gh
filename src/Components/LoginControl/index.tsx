@@ -2,7 +2,7 @@ import React from "react";
 import { LogoutButton } from "./LogoutButton";
 import { LoginButton } from "./LoginButton";
 import { logoutUser } from "../../Actions";
-import { store } from "../../Root";
+import { store } from "../../index";
 import * as Constants from "../../Utils/Constants";
 
 interface LoginControlProps {

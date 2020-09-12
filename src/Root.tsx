@@ -3,11 +3,7 @@ import React from "react";
 import { Provider } from "react-redux";
 
 import App from "./App";
-import configureStore from "./Utils/Store";
-
-export const store = configureStore({
-  Auth: { isAuthenticated: false, isVerfifying: false, user: {} },
-});
+import { store } from "./index";
 
 const Root = () => {
   return (

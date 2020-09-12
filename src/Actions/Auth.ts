@@ -26,7 +26,7 @@ const requestLogin = () => {
   };
 };
 
-const receiveLogin = (user: any) => {
+export const receiveLogin = (user: any) => {
   return {
     type: LOGIN_SUCCESS,
     user,
@@ -69,7 +69,7 @@ const requestVerify = () => {
   };
 };
 
-const receiveVerify = (user: any) => {
+export const receiveVerify = (user: any) => {
   return {
     type: VERIFY_SUCCESS,
     user,
@@ -111,11 +111,10 @@ export const logoutUser = (dispatch: Function) => {
 
 // Verify user thunk
 export function verifyAuth(store: Store): Store {
-  // store.dispatch(requestVerify());
+  store.dispatch(requestVerify());
 
   app.auth().onAuthStateChanged((user: any) => {
     if (user !== null) {
-      // history.push("/admin");
       store.dispatch(receiveLogin(user));
       store.dispatch(receiveVerify(user));
     }

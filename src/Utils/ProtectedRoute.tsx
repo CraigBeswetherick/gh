@@ -10,8 +10,6 @@ interface InterfaceProtectedRoute {
 }
 
 const ProtectedRoute = (props: InterfaceProtectedRoute) => {
-  console.log(props.isAuthenticated && props.isProtected);
-
   if (props.isAuthenticated && props.isProtected) {
     return (
       <Route
@@ -31,7 +29,7 @@ const ProtectedRoute = (props: InterfaceProtectedRoute) => {
       />
     );
   } else {
-    console.log("rendering redirect?");
+    window.location.href = "./login";
     return <div></div>;
   }
 };

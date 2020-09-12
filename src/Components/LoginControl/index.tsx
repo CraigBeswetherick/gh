@@ -3,7 +3,6 @@ import { LogoutButton } from "./LogoutButton";
 import { LoginButton } from "./LoginButton";
 import { logoutUser } from "../../Actions";
 import { store } from "../../Root";
-import history from "../../Utils/History";
 import * as Constants from "../../Utils/Constants";
 
 interface LoginControlProps {

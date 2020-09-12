@@ -3,6 +3,7 @@ import { app, getUser } from "../Utils/Firebase";
 import * as Constants from "../Utils/Constants";
 import history from "../Utils/History";
 import { Store } from "redux";
+import { NORMAL } from "../Utils/Roles";
 
 export const REGISTER_REQUEST: string = "REGISTER_REQUEST";
 export const REGISTER_SUCCESS: string = "REGISTER_SUCCESS";
@@ -113,7 +114,7 @@ export const registerUser = (
     .auth()
     .createUserWithEmailAndPassword(email, password)
     .then((user) => {
-      return getUser(user.user?.uid).set({ email }, () => {
+      return getUser(user.user?.uid).set({ email, roles: [NORMAL] }, () => {
         dispatch(receiveRegister(user));
       });
     })

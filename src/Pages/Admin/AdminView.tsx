@@ -3,6 +3,8 @@ import { Typography } from "@material-ui/core";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import Navigation from "../../Components/Navigation";
+import Users from "../../Components/Users";
+
 import { makeStyles, Theme, useTheme } from "@material-ui/core/styles";
 import SwipeableViews from "react-swipeable-views";
 import Tabs from "@material-ui/core/Tabs";
@@ -88,7 +90,7 @@ const AdminView: React.FC = (props) => {
           onChangeIndex={handleChangeIndex}
         >
           <TabPanel value={value} index={0} dir={theme.direction}>
-            Users
+            <Users />
           </TabPanel>
           <TabPanel value={value} index={1} dir={theme.direction}>
             Create a post

@@ -59,8 +59,6 @@ const RegisterView: React.FC<RegisterViewInterface> = (
   const { registerError } = props;
   const classes = styles();
 
-  console.log(registerError);
-
   return (
     <div>
       <Navigation />

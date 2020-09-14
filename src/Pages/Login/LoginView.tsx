@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import Navigation from "../../Components/Navigation";
+import { PAGE_REGISTER_LABEL, PAGE_REGISTER_URL } from "../../Utils/Constants";
 
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -96,6 +97,9 @@ const LoginView = (props: LoginViewInterface) => {
                     Incorrect email or password.
                   </Typography>
                 )}
+                <a href={PAGE_REGISTER_URL}>
+                  <Typography component="h3">{PAGE_REGISTER_LABEL}</Typography>
+                </a>
                 <Button
                   type="button"
                   fullWidth

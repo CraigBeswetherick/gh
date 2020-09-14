@@ -1,5 +1,7 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -21,22 +23,17 @@ interface UsersView {
 const UsersView = (props: UsersView) => {
   const classes = useStyles();
 
-  props.userList.forEach((user: any) => {
-    console.log(user[0]);
-    console.log(user[1].email);
-  });
-
   return (
     <div>
       <Typography className={classes.title}>List of all users</Typography>
 
-      {props.isLoading ? <p>Loading...</p> : ""}
+      {props.isLoading ? <Typography>Loading...</Typography> : ""}
 
-      {props.userList.forEach((user: any) => (
-        <Typography className={classes.title}>
-          Email: {user[1].email} Id: {user[0]} Roles: {user[3]}
-        </Typography>
-      ))}
+      <List>
+        {props.userList.map((user: any) => (
+          <ListItem key={user[0]}>{user[1].email}</ListItem>
+        ))}
+      </List>
     </div>
   );
 };

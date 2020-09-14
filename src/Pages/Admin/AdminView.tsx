@@ -30,11 +30,7 @@ function TabPanel(props: TabPanelProps) {
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {value === index && <Box p={3}>{children}</Box>}
     </div>
   );
 }
@@ -93,10 +89,10 @@ const AdminView: React.FC = (props) => {
             <Users />
           </TabPanel>
           <TabPanel value={value} index={1} dir={theme.direction}>
-            Create a post
+            <Typography>Create a post</Typography>
           </TabPanel>
           <TabPanel value={value} index={2} dir={theme.direction}>
-            Posts
+            <Typography>Posts</Typography>
           </TabPanel>
         </SwipeableViews>
       </div>

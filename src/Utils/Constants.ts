@@ -19,3 +19,12 @@ export const PAGE_LOGOUT_LABEL: string = "Logout";
 
 export const TWITTER_URL: string = "https://twitter.com/grindheadgames";
 export const TWITTER_LABEL: string = "Grindhead Twitter";
+
+export const EMAIL_ADDRESS: String =
+  "grindhead@gmail.com?subject=Hello%20To%20Grindhead";
+export const EMAIL_ADDRESS_LABEL: String = "grindhead@gmail.com";
+export const PHONE_NUMBER: string = "Phone Number:";
+export const PHONE_NUMBER_LABEL: string = "+44 (0)7311408140";
+
+export const FOOTER_TITLE: string = "Thank you for visiting our website.";
+export const FOOTER_SUBTITLE: string = "You may contact us via: ";

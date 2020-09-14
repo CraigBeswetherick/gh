@@ -7,23 +7,23 @@ import Link from "@material-ui/core/Link";
 const FooterView: React.FC = (props) => {
   return (
     <div className="footer">
-      <Typography variant="h4">Thank you for visiting our website.</Typography>
+      <Typography variant="h4">{Constants.FOOTER_TITLE}</Typography>
       <br />
-      <Typography variant="h5">You may contact us via: </Typography>
+      <Typography variant="h5">{Constants.FOOTER_SUBTITLE}</Typography>
       <br />
       <Typography variant="h5">
-        <b>Email: </b>
-        <Link href="mailto:grindhead@gmail.com?subject=Hello%20To%20Grindhead">
-          grindhead@gmail.com
+        <Link href={"mailto:" + Constants.EMAIL_ADDRESS}>
+          {Constants.EMAIL_ADDRESS_LABEL}
         </Link>{" "}
       </Typography>
       <Typography variant="h5">
-        <b>Twitter: </b>
-        <Link href={Constants.TWITTER_URL}>twitter.com/grindheadgames </Link>
+        <Link href={Constants.TWITTER_URL}>{Constants.TWITTER_LABEL}</Link>
       </Typography>
       <Typography variant="h5">
-        <b>Phone:</b>
-        <Link href="tel:+0311-408-140"> +44 (0)7311408140</Link>{" "}
+        <Link href={"tel:" + Constants.PHONE_NUMBER}>
+          {" "}
+          {Constants.PHONE_NUMBER_LABEL}
+        </Link>{" "}
       </Typography>
       <br />
     </div>

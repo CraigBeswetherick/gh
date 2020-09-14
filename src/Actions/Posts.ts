@@ -14,10 +14,69 @@ export const POST_PUBLISH_REQUEST: string = "POST_PUBLISH_REQUEST";
 export const POST_PUBLISH_SUCCESS: string = "POST_PUBLISH_SUCCESS";
 export const POST_PUBLISH_FAILURE: string = "POST_PUBLISH_FAILURE";
 
-// Posts
 const requestCreatePost = () => {
   return {
     type: POST_CREATE_REQUEST,
+  };
+};
+
+const receivePostCreate = (user: any) => {
+  return {
+    type: POST_PUBLISH_SUCCESS,
+    user,
+  };
+};
+
+const postError = (e: string) => {
+  return {
+    type: POST_PUBLISH_FAILURE,
+    error: e,
+  };
+};
+
+const requestEditPost = () => {
+  return {
+    type: POST_EDIT_REQUEST,
+  };
+};
+
+const receiveEditPublish = (user: any) => {
+  return {
+    type: POST_EDIT_SUCCESS,
+    user,
+  };
+};
+
+const editError = (e: string) => {
+  return {
+    type: POST_EDIT_FAILURE,
+    error: e,
+  };
+};
+
+const requestDeletePost = () => {
+  return {
+    type: POST_DELETE_REQUEST,
+  };
+};
+
+const receiveDeletePublish = (user: any) => {
+  return {
+    type: POST_DELETE_SUCCESS,
+    user,
+  };
+};
+
+const deleteError = (e: string) => {
+  return {
+    type: POST_DELETE_FAILURE,
+    error: e,
+  };
+};
+
+const requestPublishPost = () => {
+  return {
+    type: POST_PUBLISH_REQUEST,
   };
 };
 
@@ -28,7 +87,7 @@ const receivePostPublish = (user: any) => {
   };
 };
 
-const postError = (e: string) => {
+const publishError = (e: string) => {
   return {
     type: POST_PUBLISH_FAILURE,
     error: e,

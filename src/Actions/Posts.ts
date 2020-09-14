@@ -13,3 +13,24 @@ export const POST_DELETE_FAILURE: string = "POST_DELETE_FAILURE";
 export const POST_PUBLISH_REQUEST: string = "POST_PUBLISH_REQUEST";
 export const POST_PUBLISH_SUCCESS: string = "POST_PUBLISH_SUCCESS";
 export const POST_PUBLISH_FAILURE: string = "POST_PUBLISH_FAILURE";
+
+// Login
+const requestCreatePost = () => {
+  return {
+    type: POST_CREATE_REQUEST,
+  };
+};
+
+const receivePostPublish = (user: any) => {
+  return {
+    type: POST_PUBLISH_SUCCESS,
+    user,
+  };
+};
+
+const postError = (e: string) => {
+  return {
+    type: POST_PUBLISH_FAILURE,
+    error: e,
+  };
+};

@@ -29,11 +29,13 @@ const UsersView = (props: UsersView) => {
 
       {props.isLoading ? <Typography>Loading...</Typography> : ""}
 
-      <List>
-        {props.userList.map((user: any) => (
-          <ListItem key={user[0]}>{user[1].email}</ListItem>
-        ))}
-      </List>
+      {props.userList.map((user: any, index: number) => (
+        <List key={index}>
+          <ListItem key={user[0]}>Email: {user[1].email}</ListItem>
+          <ListItem key={user[0] + "0"}>ID: {user[0]}</ListItem>
+          <ListItem key={user[0] + "1"}>Roles: {user[1].roles}</ListItem>
+        </List>
+      ))}
     </div>
   );
 };

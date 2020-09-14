@@ -14,7 +14,7 @@ export const POST_PUBLISH_REQUEST: string = "POST_PUBLISH_REQUEST";
 export const POST_PUBLISH_SUCCESS: string = "POST_PUBLISH_SUCCESS";
 export const POST_PUBLISH_FAILURE: string = "POST_PUBLISH_FAILURE";
 
-// Login
+// Posts
 const requestCreatePost = () => {
   return {
     type: POST_CREATE_REQUEST,

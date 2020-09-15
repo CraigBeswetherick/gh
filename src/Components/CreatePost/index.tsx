@@ -18,13 +18,18 @@ const CreatePost: React.FC<InterfaceCreatePost> = (
   const [postContent, setPostContent] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  console.log('user', props.user)
+
+  let email = props.user.email || '';
+
   const handleSubmit = () => {
     setIsLoading(true);
     Actions.createPost(
       postTitle,
       postContent,
       props.user.uid,
-      store.dispatch
+      store.dispatch,
+      email,
     ).then(() => {
       setIsLoading(false);
       window.location.href = PAGE_ADMIN_URL;

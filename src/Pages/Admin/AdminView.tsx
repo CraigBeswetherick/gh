@@ -1,5 +1,4 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import Navigation from "../../Components/Navigation";
@@ -12,6 +11,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import AppBar from "@material-ui/core/AppBar";
 import Box from "@material-ui/core/Box";
+import PostList from "../../Components/PostList";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -93,7 +93,7 @@ const AdminView: React.FC = (props) => {
             <CreatePost />
           </TabPanel>
           <TabPanel value={value} index={2} dir={theme.direction}>
-            <Typography>Posts</Typography>
+            <PostList />
           </TabPanel>
         </SwipeableViews>
       </div>

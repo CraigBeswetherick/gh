@@ -25,6 +25,8 @@ const Users: React.FC = () => {
       if (snapshot.val()) {
         const users: any = Object.entries(snapshot.val());
         setUserList(users);
+      } else {
+        setUserList([]);
       }
     });
   };

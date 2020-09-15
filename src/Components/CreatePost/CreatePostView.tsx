@@ -34,6 +34,7 @@ interface InterfaceCreatePostView {
   setPostTitle: Function;
   setPostContent: Function;
   handleSubmit: Function;
+  isLoading: boolean;
 }
 
 const CreatePostView: React.FC<InterfaceCreatePostView> = (
@@ -81,6 +82,7 @@ const CreatePostView: React.FC<InterfaceCreatePostView> = (
               type="button"
               variant="contained"
               color="primary"
+              disabled={props.isLoading}
               className={classes.submit}
               onClick={(e: any) => props.handleSubmit(e)}
             >

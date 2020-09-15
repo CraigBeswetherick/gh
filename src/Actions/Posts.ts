@@ -106,7 +106,7 @@ export const createPost = (
 
   const postRef = db.ref("/posts");
 
-  postRef
+  return postRef
     .push({
       title,
       content,

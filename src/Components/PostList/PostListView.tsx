@@ -34,8 +34,9 @@ const PostListView = (props: PostListView) => {
       {props.postList.map((post: any, index: number) => (
         <List key={index}>
           <ListItem key={post.title}>Title: {post[1].title}</ListItem>
-          <ListItem key={index}>Content: {post[1].content}</ListItem>
-          <ListItem key={index+1}>Author: {post[1].author}</ListItem>
+          <ListItem key={index + 'content'}>Content: {post[1].content}</ListItem>
+          <ListItem key={index + 'id'}>Author ID: {post[1].author}</ListItem>
+          <ListItem key={index + 'email'}>Author Email: {post[1].authorEmail}</ListItem>
         </List>
       ))}
     </div>

@@ -100,7 +100,8 @@ export const createPost = (
   title: string,
   content: string,
   userId: string,
-  dispatch: Function
+  dispatch: Function,
+  userEmail?: string,
 ) => {
   dispatch(requestCreatePost());
 
@@ -111,6 +112,7 @@ export const createPost = (
       title,
       content,
       author: userId,
+      authorEmail: userEmail
     })
     .then(() => {
       dispatch(receivePostCreate());

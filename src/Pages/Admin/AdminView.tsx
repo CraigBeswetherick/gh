@@ -4,6 +4,7 @@ import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import Navigation from "../../Components/Navigation";
 import Users from "../../Components/Users";
+import CreatePost from "../../Components/CreatePost";
 
 import { makeStyles, Theme, useTheme } from "@material-ui/core/styles";
 import SwipeableViews from "react-swipeable-views";
@@ -89,7 +90,7 @@ const AdminView: React.FC = (props) => {
             <Users />
           </TabPanel>
           <TabPanel value={value} index={1} dir={theme.direction}>
-            <Typography>Create a post</Typography>
+            <CreatePost />
           </TabPanel>
           <TabPanel value={value} index={2} dir={theme.direction}>
             <Typography>Posts</Typography>

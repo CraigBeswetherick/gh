@@ -1,3 +1,5 @@
+import { db } from "../Utils/Firebase";
+
 export const POST_CREATE_REQUEST: string = "POST_CREATE_REQUEST";
 export const POST_CREATE_SUCCESS: string = "POST_CREATE_SUCCESS";
 export const POST_CREATE_FAILURE: string = "POST_CREATE_FAILURE";
@@ -20,10 +22,9 @@ const requestCreatePost = () => {
   };
 };
 
-const receivePostCreate = (user: any) => {
+const receivePostCreate = () => {
   return {
     type: POST_PUBLISH_SUCCESS,
-    user,
   };
 };
 
@@ -93,3 +94,32 @@ const publishError = (e: string) => {
     error: e,
   };
 };
+
+// Create Post Thunk
+export const createPost = (
+  title: string,
+  content: string,
+  userId: string,
+  dispatch: Function
+) => {
+  dispatch(requestCreatePost());
+
+  const postRef = db.ref("/posts");
+
+  postRef
+    .push({
+      title,
+      content,
+      author: userId,
+    })
+    .then(() => {
+      dispatch(receivePostCreate());
+    })
+    .catch((e) => {
+      dispatch(postError(e.message));
+    });
+};
+
+// Edit Post Thunk
+// Publish Post Thunk
+// Delete Post Thunk

@@ -13,6 +13,12 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       flexGrow: 1,
     },
+    button: {
+      background: "red",
+      "&:hover": {
+        background: "grey",
+      },
+    },
   })
 );
 
@@ -37,7 +43,10 @@ const UsersView = (props: UsersView) => {
           <ListItem key={user[0]}>Email: {user[1].email} </ListItem>
           <ListItem key={user[0] + "0"}>ID: {user[0]}</ListItem>
           <ListItem key={user[0] + "1"}>Roles: {user[1].roles}</ListItem>
-          <Button onClick={() => props.handleDelete(user[0])}>
+          <Button
+            className={classes.button}
+            onClick={() => props.handleDelete(user[0])}
+          >
             Delete User
           </Button>
         </List>

@@ -27,3 +27,7 @@ export const getUser = (uid?: string) => {
 export const getAllUsers = () => {
   return db.ref("users");
 };
+
+export const getPostList = () => {
+  return db.ref("posts");
+};

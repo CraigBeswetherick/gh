@@ -23,16 +23,19 @@ interface PostListView {
 const PostListView = (props: PostListView) => {
   const classes = useStyles();
 
+  console.log(props.postList)
+
   return (
     <div>
-      <Typography className={classes.title}>List of all users</Typography>
+      <Typography className={classes.title}>List of all Posts</Typography>
 
       {props.isLoading ? <Typography>Loading...</Typography> : ""}
 
       {props.postList.map((post: any, index: number) => (
         <List key={index}>
-          <ListItem key={post.title}>{post.title}</ListItem>
-          <ListItem key={index}>{post.content}</ListItem>
+          <ListItem key={post.title}>Title: {post[1].title}</ListItem>
+          <ListItem key={index}>Content: {post[1].content}</ListItem>
+          <ListItem key={index+1}>Author: {post[1].author}</ListItem>
         </List>
       ))}
     </div>

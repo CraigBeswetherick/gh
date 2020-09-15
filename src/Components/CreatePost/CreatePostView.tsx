@@ -22,6 +22,7 @@ const useStyles = makeStyles({
     padding: 20,
     flexDirection: "column",
     alignItems: "center",
+    width: "100%",
   },
   submit: {
     marginTop: 0,

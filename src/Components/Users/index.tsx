@@ -1,20 +1,48 @@
 import React, { useState, useEffect } from "react";
 import UsersView from "./UsersView";
-import { getAllUsers } from "../../Utils/Firebase";
+import { getAllUsers, deleteUser } from "../../Utils/Firebase";
 
 const Users: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [userList, setUserList] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(() => {
+  const handleDelete = (userId: string) => {
+    setIsLoading(true);
+    setErrorMessage("");
+    deleteUser(userId)
+      .then(() => {
+        getUsers();
+      })
+      .catch((error) => {
+        setErrorMessage(error);
+      });
+  };
+
+  const getUsers = () => {
     getAllUsers().on("value", (snapshot) => {
       setIsLoading(false);
-      const users: any = Object.entries(snapshot.val());
-      setUserList(users);
+      if (snapshot.val()) {
+        const users: any = Object.entries(snapshot.val());
+        setUserList(users);
+      } else {
+        setUserList([]);
+      }
     });
+  };
+
+  useEffect(() => {
+    getUsers();
   }, []);
 
-  return <UsersView userList={userList} isLoading={isLoading} />;
+  return (
+    <UsersView
+      userList={userList}
+      isLoading={isLoading}
+      handleDelete={handleDelete}
+      errorMessage={errorMessage}
+    />
+  );
 };
 
 export default Users;

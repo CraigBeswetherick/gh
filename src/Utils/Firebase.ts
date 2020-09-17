@@ -28,6 +28,23 @@ export const getAllUsers = () => {
   return db.ref("users");
 };
 
+export const deleteUser = (uid: string) => {
+  return getUser(uid)
+    .set(null)
+    .then(() => {
+      return app
+        .auth()
+        .currentUser?.delete()
+        .then(function () {
+          console.log("User has been deleted");
+        })
+        .catch(function (error) {
+          // An error happened.
+          console.log(error);
+        });
+    });
+};
+
 export const getPostList = () => {
   return db.ref("posts");
 };

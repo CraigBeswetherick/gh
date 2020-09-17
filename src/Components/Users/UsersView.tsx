@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       flexGrow: 1,
     },
+    listItem: {
+      textAlign: "center",
+    },
     button: {
       background: "red",
       "&:hover": {
@@ -40,7 +43,9 @@ const UsersView = (props: UsersView) => {
 
       {props.userList.map((user: any, index: number) => (
         <List key={index}>
-          <ListItem key={user[0]}>Email: {user[1].email} </ListItem>
+          <ListItem alignItems="center" key={user[0]}>
+            Email: {user[1].email}{" "}
+          </ListItem>
           <ListItem key={user[0] + "0"}>ID: {user[0]}</ListItem>
           <ListItem key={user[0] + "1"}>Roles: {user[1].roles}</ListItem>
           <Button

@@ -5,8 +5,8 @@ const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 admin.initializeApp();
 
-exports.createUser = functions.auth.user().onCreate((userRecord, context) => {
-  return admin.database().ref(`/users/${userRecord.data.uid}`).set({
-    registeredDate: new Date().toJSON(),
+exports.createUser = functions.auth.user().onCreate(async (user) => {
+  return admin.database().ref(`/users/${user.uid}`).update({
+    registeredDate: new Date().toISOString(),
   });
 });

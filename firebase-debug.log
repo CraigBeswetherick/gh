@@ -1,0 +1,22 @@
+[debug] [2020-09-18T15:25:49.387Z] ----------------------------------------------------------------------
+[debug] [2020-09-18T15:25:49.390Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions
+[debug] [2020-09-18T15:25:49.390Z] CLI Version:   8.10.0
+[debug] [2020-09-18T15:25:49.390Z] Platform:      darwin
+[debug] [2020-09-18T15:25:49.391Z] Node Version:  v12.18.4
+[debug] [2020-09-18T15:25:49.391Z] Time:          Fri Sep 18 2020 16:25:49 GMT+0100 (British Summer Time)
+[debug] [2020-09-18T15:25:49.392Z] ----------------------------------------------------------------------
+[debug] [2020-09-18T15:25:49.392Z] 
+[debug] [2020-09-18T15:25:49.399Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-09-18T15:25:49.399Z] > authorizing via signed-in user
+[debug] [2020-09-18T15:25:49.400Z] [iam] checking project grindheadgames-7fe3e for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2020-09-18T15:25:49.403Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/grindheadgames-7fe3e:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2020-09-18T15:25:50.514Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 18 Sep 2020 15:09:25 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=553","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-09-18T15:25:50.516Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/grindheadgames-7fe3e/serviceAccounts/grindheadgames-7fe3e@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2020-09-18T15:25:51.243Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 18 Sep 2020 15:09:26 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'grindheadgames-7fe3e'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
